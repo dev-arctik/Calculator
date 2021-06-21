@@ -1,4 +1,53 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Righteous', cursive;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive, sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(54, 9, 121, 1) 5%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+/* calculator layout */
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 15%);
+  grid-template-rows: minmax(15%, auto) repeat(5, 15%);
+}
+
+/* Ouput area  */
+.output {
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.781);
+  color: white;
+  /* word-wrap: break-word; */
+  word-break: break-all;
+}
+
+/* button  */
+.span-two {
+  grid-column: span 2;
+}
+button {
+  cursor: pointer;
+}
+
+button,
+.output {
+  border: 2px solid red;
 }
