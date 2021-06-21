@@ -8,11 +8,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(54, 9, 121, 1) 5%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: #bfbfbf;
 }
 
 /* calculator layout */
@@ -21,8 +17,8 @@ body {
   justify-content: center;
   align-content: center;
   min-height: 100vh;
-  grid-template-columns: repeat(4, 15%);
-  grid-template-rows: minmax(15%, auto) repeat(5, 15%);
+  grid-template-columns: repeat(4, 12%);
+  grid-template-rows: minmax(16%, auto) repeat(5, 12%);
 }
 
 /* Ouput area  */
@@ -32,11 +28,24 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
-  padding: 8px;
-  background-color: rgba(0, 0, 0, 0.781);
-  color: white;
+  padding: 16px;
+  border-radius: 16px;
+  background: #4f4f4f;
+  box-shadow: inset 4px 4px 8px #353535, inset -4px -4px 8px #696969;
+  /* color: white; */
   /* word-wrap: break-word; */
   word-break: break-all;
+  margin-bottom: 8px;
+}
+
+.output .previous-operand {
+  color: #e9e9e9b6;
+  font-size: 1rem;
+}
+
+.output .current-operand {
+  color: #e9e9e9;
+  font-size: 1.1rem;
 }
 
 /* button  */
@@ -44,10 +53,22 @@ body {
   grid-column: span 2;
 }
 button {
+  margin: 8px;
   cursor: pointer;
+  border: none;
+  border-radius: 16px;
+  background: #bfbfbf;
+  box-shadow: 4px 4px 8px #808080, -4px -4px 8px #fefefe;
 }
 
-button,
-.output {
-  border: 2px solid red;
+button:hover {
+  border-radius: 16px;
+  background: linear-gradient(145deg, #cccccc, #acacac);
+  box-shadow: 4px 4px 8px #808080, -4px -4px 8px #fefefe;
 }
+
+/* neumorphism on active state {
+  border-radius: 16px;
+  background: linear-gradient(145deg, #acacac, #cccccc);
+  box-shadow: 4px 4px 8px #808080, -4px -4px 8px #fefefe;
+} */
