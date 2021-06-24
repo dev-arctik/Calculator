@@ -24,8 +24,7 @@ function del() {
 //this will work when equals is pressed and compute the math
 function calculate() {
     //this if will make sure you dont try to compute with empty currentText or previousText
-    if (currentText.innerHTML == '') return;
-    if (previousText.innerHTML == '') return;
+    if (currentText.innerHTML == '' || previousText.innerHTML == '') return;
 
     //slice is added so that it does not take the mathematical symbol
     let num1 = parseFloat(previousText.innerHTML.slice(0, -1));
@@ -61,10 +60,17 @@ function calculate() {
 
 //it will append the number when button is pressed
 function append(buttonText) {
+
     //it will return if currentText already has a decimal
     if (buttonText == '.' && currentText.innerHTML.includes('.')) return;
     //this will append the text
     currentText.innerHTML += buttonText;
+
+    //this will work after equals you want to start new calculation
+    if (Number.isInteger(parseInt(previousText.innerHTML.slice(-1)))) {
+        previousText.innerHTML = '';
+        currentText.innerHTML = buttonText;
+    }
 }
 
 //This function will work when we keep press operation without pressing equals or after pressing equals
@@ -74,7 +80,6 @@ function operation(mathsymbol) {
 
     //this will work if currentText is empty and you press operation so it will change the operation in previousText
     if (previousText.innerHTML != '' && currentText.innerHTML == '') {
-        console.log('pass')
         previousText.innerHTML = previousText.innerHTML.slice(0, -1) + mathsymbol;
     }
     else {
