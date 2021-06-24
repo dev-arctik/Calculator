@@ -23,11 +23,13 @@ function del() {
 
 //this will work when equals is pressed and compute the math
 function calculate() {
+    //this if will make sure you dont try to compute with empty currentText or previousText
+    if (currentText.innerHTML == '') return;
+    if (previousText.innerHTML == '') return;
+
     //slice is added so that it does not take the mathematical symbol
     let num1 = parseFloat(previousText.innerHTML.slice(0, -1));
     let num2 = parseFloat(currentText.innerHTML);
-
-    if (previousText.innerHTML == '') return;
 
     //computing for all math
     switch (previousText.innerHTML.slice(-1)) {
@@ -70,39 +72,46 @@ function operation(mathsymbol) {
     //It will return if there is no number in display
     if (currentText.innerHTML == '' && previousText.innerHTML == '') return;
 
-    //this will execute if previousText is empty else it will compute the previousText and currentText
-    if (previousText.innerHTML == '') {
-        previousText.innerHTML = currentText.innerHTML + mathsymbol;
-        currentText.innerHTML = '';
-    } else {
-        let num1 = parseFloat(previousText.innerHTML.slice(0, -1));
-        let num2 = parseFloat(currentText.innerHTML);
+    //this will work if currentText is empty and you press operation so it will change the operation in previousText
+    if (previousText.innerHTML != '' && currentText.innerHTML == '') {
+        console.log('pass')
+        previousText.innerHTML = previousText.innerHTML.slice(0, -1) + mathsymbol;
+    }
+    else {
+        //this will execute if previousText is empty else it will compute the previousText and currentText
+        if (previousText.innerHTML == '') {
+            previousText.innerHTML = currentText.innerHTML + mathsymbol;
+            currentText.innerHTML = '';
+        } else {
+            let num1 = parseFloat(previousText.innerHTML.slice(0, -1));
+            let num2 = parseFloat(currentText.innerHTML);
 
-        switch (previousText.innerHTML.slice(-1)) {
-            case '*':
-                previousText.innerHTML = (num1 * num2).toString() + mathsymbol;
-                currentText.innerHTML = '';
-                break;
+            switch (previousText.innerHTML.slice(-1)) {
+                case '*':
+                    previousText.innerHTML = (num1 * num2).toString() + mathsymbol;
+                    currentText.innerHTML = '';
+                    break;
 
-            case '+':
-                previousText.innerHTML = (num1 + num2).toString() + mathsymbol;
-                currentText.innerHTML = '';
-                break;
+                case '+':
+                    previousText.innerHTML = (num1 + num2).toString() + mathsymbol;
+                    currentText.innerHTML = '';
+                    break;
 
-            case '-':
-                previousText.innerHTML = (num1 - num2).toString() + mathsymbol;
-                currentText.innerHTML = '';
-                break;
+                case '-':
+                    previousText.innerHTML = (num1 - num2).toString() + mathsymbol;
+                    currentText.innerHTML = '';
+                    break;
 
-            case '÷':
-                previousText.innerHTML = (num1 / num2).toString() + mathsymbol;
-                currentText.innerHTML = '';
-                break;
+                case '÷':
+                    previousText.innerHTML = (num1 / num2).toString() + mathsymbol;
+                    currentText.innerHTML = '';
+                    break;
 
-            //default will work if you try to press operation after pressing equals
-            default:
-                previousText.innerHTML = currentText.innerHTML + mathsymbol;
-                currentText.innerHTML = '';
+                //default will work if you try to press operation after pressing equals
+                default:
+                    previousText.innerHTML = currentText.innerHTML + mathsymbol;
+                    currentText.innerHTML = '';
+            }
         }
     }
 }
