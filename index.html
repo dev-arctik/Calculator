@@ -16,11 +16,11 @@
   <body>
     <div class="calculator-grid">
       <div class="output">
-        <div class="previous-operand"></div>
-        <div class="current-operand"></div>
+        <div id="previousText" class="previous-operand">5215</div>
+        <div id="currentText" class="current-operand">815115</div>
       </div>
-      <button class="span-two">AC</button>
-      <button>DEL</button>
+      <button onclick="allClear()" class="span-two">AC</button>
+      <button onclick="del()">DEL</button>
       <button>÷</button>
       <button>1</button>
       <button>2</button>
