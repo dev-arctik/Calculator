@@ -16,27 +16,27 @@
   <body>
     <div class="calculator-grid">
       <div class="output">
-        <div id="previousText" class="previous-operand">5215</div>
-        <div id="currentText" class="current-operand">815115</div>
+        <div id="previousText" class="previous-operand"></div>
+        <div id="currentText" class="current-operand"></div>
       </div>
       <button onclick="allClear()" class="span-two">AC</button>
       <button onclick="del()">DEL</button>
-      <button>÷</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>*</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>+</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button>-</button>
-      <button>.</button>
-      <button>0</button>
-      <button class="span-two">=</button>
+      <button onclick="operation(this.innerHTML)">÷</button>
+      <button onclick="append(this.innerHTML)">1</button>
+      <button onclick="append(this.innerHTML)">2</button>
+      <button onclick="append(this.innerHTML)">3</button>
+      <button onclick="operation(this.innerHTML)">*</button>
+      <button onclick="append(this.innerHTML)">4</button>
+      <button onclick="append(this.innerHTML)">5</button>
+      <button onclick="append(this.innerHTML)">6</button>
+      <button onclick="operation(this.innerHTML)">+</button>
+      <button onclick="append(this.innerHTML)">7</button>
+      <button onclick="append(this.innerHTML)">8</button>
+      <button onclick="append(this.innerHTML)">9</button>
+      <button onclick="operation(this.innerHTML)">-</button>
+      <button onclick="append(this.innerHTML)">.</button>
+      <button onclick="append(this.innerHTML)">0</button>
+      <button onclick="calculate()" class="span-two">=</button>
     </div>
     <script src="script.js"></script>
   </body>

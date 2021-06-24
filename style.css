@@ -63,12 +63,6 @@ button {
 
 button:hover {
   border-radius: 16px;
-  background: linear-gradient(145deg, #cccccc, #acacac);
-  box-shadow: 4px 4px 8px #808080, -4px -4px 8px #fefefe;
-}
-
-/* neumorphism on active state {
-  border-radius: 16px;
   background: linear-gradient(145deg, #acacac, #cccccc);
-  box-shadow: 4px 4px 8px #808080, -4px -4px 8px #fefefe;
-} */
+  box-shadow: 4px 4px 16px #808080, -4px -4px 16px #fefefe;
+}
